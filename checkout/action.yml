@@ -1,0 +1,14 @@
+name: 'ZDT Setup .NET'
+description: 'Custom action to setup .NET environment'
+inputs:
+  dotnet-version:
+    description: '.NET version'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+  - run: |
+      wget https://dot.net/v1/dotnet-install.sh
+      chmod +x dotnet-install.sh
+      ./dotnet-install.sh --version ${{ inputs.dotnet-version }}
+    shell: bash
