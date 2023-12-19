@@ -1,5 +1,7 @@
+name: 'ZDT Checkout'
+description: 'Custom action to checkout a git repository'
 runs:
   using: 'composite'
   steps:
-  - name: Checkout Repo
-    uses: actions/checkout@v2
+  - run: git clone https://github.com/${{ github.repository }} ${{ github.workspace }}
+    shell: bash
